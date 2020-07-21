@@ -1,29 +1,29 @@
-import { useMutation } from "@apollo/client";
-
-import { IContact } from "../../interfaces";
-import { addContactMutation } from "../graphql/addContactMutation";
-import { contactsQuery } from "../graphql/contactsQuery";
-
-type AddContactMutationVariablesT = Omit<IContact, "id">;
-
-type AddContactMutationDataT = {
-  addContact: IContact;
-};
+import {
+  ContactsQueryDocument,
+  ContactsQueryQuery,
+  useAddContactMutation,
+} from "../graphql-generated/graphql";
 
 export function useCreateContact(options: { onCompleted: () => void }) {
   const { onCompleted } = options;
-  const [createContact, { loading, error }] = useMutation<
-    AddContactMutationDataT,
-    AddContactMutationVariablesT
-  >(addContactMutation, {
+
+  const [createContact, { loading, error }] = useAddContactMutation({
+    optimisticResponse(variables) {
+      return {
+        addContact: {
+          id: `${Date.now()}`,
+          ...variables,
+        },
+      };
+    },
     update(cache, { data }) {
       if (data == null) return;
       const newContact = data.addContact;
-      const contactsCache = cache.readQuery<{ contacts: IContact }>({
-        query: contactsQuery,
+      const contactsCache = cache.readQuery<ContactsQueryQuery>({
+        query: ContactsQueryDocument,
       });
       cache.writeQuery({
-        query: contactsQuery,
+        query: ContactsQueryDocument,
         data: {
           contacts: [
             ...(contactsCache == null ? [] : contactsCache.contacts),
@@ -38,5 +38,6 @@ export function useCreateContact(options: { onCompleted: () => void }) {
       }
     },
   });
+
   return { createContact, loading, error };
 }

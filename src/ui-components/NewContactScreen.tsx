@@ -13,7 +13,7 @@ type FormT = Omit<IContact, "id">;
 const EMAIL_ADDRESS_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
 export function NewContactScreen() {
-  const { handleSubmit, control, errors } = useForm<FormT>();
+  const { handleSubmit, control, errors: formErrors } = useForm<FormT>();
   const navigate = useNavigate();
   function handleNavigateToContactsScreen() {
     navigate("/");
@@ -25,12 +25,6 @@ export function NewContactScreen() {
   function handleCreateNewContact(data: FormT) {
     createContact({
       variables: data,
-      optimisticResponse: {
-        addContact: {
-          id: `${Date.now()}`,
-          ...data,
-        },
-      },
     });
   }
 
@@ -53,9 +47,11 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">First Name</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} error={errors.firstName != null} />
+                  <Input {...props} error={formErrors.firstName != null} />
                   <div className="NewContactScreen__error">
-                    {errors.firstName != null ? "First Name is required" : null}
+                    {formErrors.firstName != null
+                      ? "First Name is required"
+                      : null}
                   </div>
                 </div>
               </label>
@@ -72,9 +68,11 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">Last Name</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} error={errors.lastName != null} />
+                  <Input {...props} error={formErrors.lastName != null} />
                   <div className="NewContactScreen__error">
-                    {errors.lastName != null ? "Last Name is required" : null}
+                    {formErrors.lastName != null
+                      ? "Last Name is required"
+                      : null}
                   </div>
                 </div>
               </label>
@@ -94,9 +92,13 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">Email</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} type="email" error={errors.email != null} />
+                  <Input
+                    {...props}
+                    type="email"
+                    error={formErrors.email != null}
+                  />
                   <div className="NewContactScreen__error">
-                    {errors.email?.message}
+                    {formErrors.email?.message}
                   </div>
                 </div>
               </label>
@@ -121,8 +123,8 @@ export function NewContactScreen() {
           <Link to="/">Cancel</Link>
         </div>
       </form>
-      {loading ? "LOADING" : null}
-      {error != null ? "ERROR" : null}
+      {loading ? "Loading..." : null}
+      {error != null ? "Error" : null}
     </div>
   );
 }

@@ -1,10 +1,23 @@
 overwrite: true
 schema: "http://localhost:4520/graphql"
+documents: "src/**/*.{ts,tsx,js,jsx}"
 generates:
   src/api/graphql-generated/graphql.tsx:
+    hooks:
+      afterOneFileWrite:
+        - eslint --fix
     plugins:
       - "typescript"
       - "typescript-operations"
+      - typescript-react-apollo:
+          withHooks: true
+          withResultType: true
+          withComponent: false
+          withHOC: false
+          withMutationOptionsType: false
+          withRefetchFn: false
+          withMutationFn: false
+          reactApolloVersion: 3
       - "fragment-matcher"
   ./graphql.schema.json:
     plugins:

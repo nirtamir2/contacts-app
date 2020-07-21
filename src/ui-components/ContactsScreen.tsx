@@ -36,9 +36,9 @@ export function ContactsScreen() {
 
   function getFilteredContacts(contacts: IContact[]) {
     return contacts.filter((c) => {
-      return (
-        searchTerm.length === 0 || isContactFieldsIncludeTerm(c, searchTerm)
-      );
+      if (c == null) return false;
+      if (searchTerm.length === 0) return true;
+      return isContactFieldsIncludeTerm(c, searchTerm);
     });
   }
 
@@ -58,7 +58,7 @@ export function ContactsScreen() {
       <div className="ContactsScreen__contacts">
         {data == null
           ? null
-          : getFilteredContacts(data.contacts).map((c) => {
+          : getFilteredContacts(data).map((c) => {
               return (
                 <ContactItem
                   key={c.id}
