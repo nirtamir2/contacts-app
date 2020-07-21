@@ -1,0 +1,17 @@
+.Button {
+  padding: var(--gutter-small);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color-secondary);
+  border: 1px solid var(--primary-color);
+
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  transition: border-color var(--transition-fast);
+}
+
+.Button:hover {
+  border-color: var(--text-color);
+}

@@ -1,0 +1,10 @@
+.Input {
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+
+  border-radius: var(--border-radius);
+  border: 1px solid var(--primary-color);
+  padding: var(--gutter-small);
+}

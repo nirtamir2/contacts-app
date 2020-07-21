@@ -1,0 +1,51 @@
+.ContactItem {
+  padding: var(--gutter);
+  border: 1px solid var(--primary-color);
+
+  display: grid;
+  align-items: center;
+  grid-gap: var(--gutter);
+  grid-auto-columns: auto 1fr auto;
+  grid-auto-flow: column;
+}
+
+.ContactItem:nth-of-type(1) {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.ContactItem:nth-last-of-type(1) {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.ContactItem__avatar {
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.ContactItem__buttons {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: var(--gutter);
+}
+
+.ContactItem__button {
+  padding: var(--gutter-small);
+
+  text-decoration: none;
+  font-size: var(--font-size-regular);
+
+  border-radius: var(--border-radius);
+
+  transition: background-color var(--transition-fast);
+}
+
+.ContactItem__button:hover {
+  background-color: var(--background-color-secondary);
+}
+
+.ContactItem__button--call {
+  color: var(--call-color);
+}
+.ContactItem__button--email {
+  color: var(--email-color);
+}

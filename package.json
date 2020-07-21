@@ -2,27 +2,46 @@
   "name": "ui-test",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@apollo/react-components": "^3.1.5",
-    "@apollo/react-hooks": "^3.1.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "apollo-boost": "^0.4.9",
-    "graphql": "^15.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "devDependencies": {
-    "apollo-server": "^2.15.1"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "graphql:gen": "graphql-codegen --config codegen.yml",
     "start:api": "node server/index.js"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.0.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "classnames": "^2.2.6",
+    "graphql": "^15.2.0",
+    "history": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^6.0.0-beta.0",
+    "react-router-dom": "^6.0.0-beta.0",
+    "react-router-native": "^6.0.0-beta.0",
+    "react-scripts": "3.4.1",
+    "typescript": "^3.9.7"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.17.0",
+    "@graphql-codegen/fragment-matcher": "^1.17.0",
+    "@graphql-codegen/introspection": "^1.17.0",
+    "@graphql-codegen/typescript": "^1.17.0",
+    "@graphql-codegen/typescript-graphql-files-modules": "^1.17.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
+    "@types/classnames": "^2.2.10",
+    "@types/crypto-js": "^3.1.47",
+    "@types/globalthis": "^1.0.1",
+    "@types/jest": "^26.0.5",
+    "@types/node": "^14.0.24",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "apollo-server": "^2.15.1",
+    "prettier": "^2.0.5"
   },
   "eslintConfig": {
     "extends": "react-app"
