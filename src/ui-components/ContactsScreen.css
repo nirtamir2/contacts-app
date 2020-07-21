@@ -8,7 +8,7 @@
 }
 
 .ContactsScreen__header {
-  background-color: var(--white);
+  background-color: var(--background-color);
 
   display: grid;
   grid-gap: var(--gutter);

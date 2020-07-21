@@ -1,2 +1,51 @@
 .NewContactScreen {
+  max-width: var(--md-screen-width);
+  padding: var(--gutter);
+  margin: auto;
+
+  display: grid;
+  grid-gap: var(--gutter);
+}
+
+.NewContactScreen__title {
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-bold);
+}
+
+.NewContactScreen__form {
+  display: grid;
+  grid-gap: var(--gutter);
+}
+
+.NewContactScreen__fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: var(--gutter);
+}
+
+.NewContactScreen__label {
+  grid-column: 1 / -1;
+
+  display: grid;
+  /* SubGrid may not be supported */
+  grid-template-columns: 6em 1fr; /* fallback */
+  /*noinspection CssInvalidPropertyValue*/
+  grid-template-columns: subgrid;
+}
+
+.NewContactScreen__label-text {
+  margin-top: var(--gutter-small);
+}
+
+.NewContactScreen__buttons {
+  display: grid;
+  grid-auto-columns: auto;
+  align-items: center;
+  justify-content: space-around;
+  grid-auto-flow: column;
+}
+
+.NewContactScreen__error {
+  font-size: var(--font-size-small);
+  color: var(--danger-color);
 }

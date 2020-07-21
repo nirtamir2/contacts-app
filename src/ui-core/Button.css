@@ -2,7 +2,7 @@
   padding: var(--gutter-small);
   border-radius: var(--border-radius);
   background-color: var(--background-color-secondary);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
 
   font-weight: inherit;
   font-size: inherit;

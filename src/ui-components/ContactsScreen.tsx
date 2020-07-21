@@ -70,7 +70,7 @@ export function ContactsScreen() {
               );
             })}
         {loading ? "Loading..." : null}
-        {error ? "Error" : null}
+        {error != null ? "Error" : null}
       </div>
     </div>
   );

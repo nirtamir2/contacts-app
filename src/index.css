@@ -1,12 +1,11 @@
 :root {
   /* Colors */
-  --white: #ffffff;
-  --primary-color: #e6ecf0;
-  --background-color-secondary: #f5f8fa;
   --text-color: #393e46;
-
-  --call-color: #1ebea5;
-  --email-color: #d93025;
+  --background-color: #ffffff;
+  --background-color-secondary: #f5f8fa;
+  --border-color: #e6ecf0;
+  --success-color: #1ebea5;
+  --danger-color: #d93025;
 
   /* Dimensions */
   --gutter: 1rem;
@@ -17,6 +16,7 @@
   /* Fonts */
   --font-family: "Open Sans", sans-serif;
 
+  --font-size-small: 0.75rem;
   --font-size-regular: 1rem;
   --font-size-big: 1.5rem;
 
@@ -45,7 +45,7 @@ body {
   font-size: var(--font-size-regular);
   font-family: var(--font-family);
 
-  background-color: var(--white);
+  background-color: var(--background-color);
 }
 
 html {

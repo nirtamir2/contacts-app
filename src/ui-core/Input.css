@@ -5,6 +5,6 @@
   color: inherit;
 
   border-radius: var(--border-radius);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
   padding: var(--gutter-small);
 }

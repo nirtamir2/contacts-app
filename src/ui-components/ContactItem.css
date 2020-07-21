@@ -1,6 +1,6 @@
 .ContactItem {
   padding: var(--gutter);
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--border-color);
 
   display: grid;
   align-items: center;
@@ -44,8 +44,8 @@
 }
 
 .ContactItem__button--call {
-  color: var(--call-color);
+  color: var(--success-color);
 }
 .ContactItem__button--email {
-  color: var(--email-color);
+  color: var(--danger-color);
 }
