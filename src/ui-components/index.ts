@@ -1,2 +1,1 @@
-export * from "./ContactsScreen";
-export * from "./NewContactScreen";
+export * from "./Root";
