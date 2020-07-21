@@ -1,3 +1,4 @@
+import cx from "classnames";
 import React from "react";
 import "./Input.css";
 
@@ -6,11 +7,19 @@ interface IProps {
   placeholder?: string;
   name?: string;
   type?: "tel" | "email" | "text";
+  error?: boolean;
   onChange: (value: string) => void;
 }
 
 export function Input(props: IProps) {
-  const { onChange, value, placeholder, name, type = "text" } = props;
+  const {
+    onChange,
+    value,
+    placeholder,
+    name,
+    type = "text",
+    error = false,
+  } = props;
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     onChange(e.target.value);
   }
@@ -21,7 +30,7 @@ export function Input(props: IProps) {
       placeholder={placeholder}
       type={type}
       onChange={handleChange}
-      className="Input"
+      className={cx("Input", { "Input--error": error })}
     />
   );
 }

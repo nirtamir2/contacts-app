@@ -7,4 +7,10 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   padding: var(--gutter-small);
+
+  transition: border-color var(--transition-fast);
+}
+
+.Input--error {
+  border-color: var(--danger-color);
 }

@@ -53,7 +53,7 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">First Name</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} />
+                  <Input {...props} error={errors.firstName != null} />
                   <div className="NewContactScreen__error">
                     {errors.firstName != null ? "First Name is required" : null}
                   </div>
@@ -72,7 +72,7 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">Last Name</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} />
+                  <Input {...props} error={errors.lastName != null} />
                   <div className="NewContactScreen__error">
                     {errors.lastName != null ? "Last Name is required" : null}
                   </div>
@@ -94,7 +94,7 @@ export function NewContactScreen() {
               <label className="NewContactScreen__label">
                 <div className="NewContactScreen__label-text">Email</div>
                 <div className="NewContactScreen__field">
-                  <Input {...props} type="email" />
+                  <Input {...props} type="email" error={errors.email != null} />
                   <div className="NewContactScreen__error">
                     {errors.email?.message}
                   </div>
