@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { contactsQuery } from "../graphql/contactsQuery";
+
 import { IContact } from "../../interfaces";
+import { contactsQuery } from "../graphql/contactsQuery";
 
 export function useContacts() {
   const { loading, error, data } = useQuery<{

@@ -8,6 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "graphql:gen": "graphql-codegen --config codegen.yml",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,svg}\"",
+    "lint": "eslint --fix \"src/**/*.{ts,tsx,js,jsx,json}\"",
     "start:api": "node server/index.js"
   },
   "dependencies": {
@@ -41,10 +43,24 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "apollo-server": "^2.15.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-sort-export-all": "^1.0.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx,json}": [
+      "eslint --fix"
+    ],
+    "**/*.{ts,tsx,js,jsx,json,svg}": [
+      "prettier --write"
+    ]
   },
   "browserslist": {
     "production": [

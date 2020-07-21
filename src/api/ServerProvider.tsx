@@ -5,6 +5,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import React from "react";
+
 import { config } from "../config";
 
 interface IProps {

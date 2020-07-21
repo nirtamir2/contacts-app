@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { ServerProvider } from "./api";
-import { ContactsScreen } from "./ContactsScreen";
-import { NewContactScreen } from "./NewContactScreen";
+import { ContactsScreen, NewContactScreen } from "./ui-components";
 
 export function Root() {
   return (

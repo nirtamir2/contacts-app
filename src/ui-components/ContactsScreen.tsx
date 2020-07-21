@@ -1,11 +1,12 @@
 import React from "react";
-import "./ContactsScreen.css";
-import { Button } from "./ui-core";
 import { useNavigate } from "react-router";
-import { useContacts } from "./api";
-import { IContact } from "./interfaces";
+
+import { useContacts } from "../api";
+import { IContact } from "../interfaces";
+import { Button, Input } from "../ui-core";
 import { ContactItem } from "./ContactItem";
-import { Input } from "./ui-core/Input";
+
+import "./ContactsScreen.css";
 
 function isContactFieldsIncludeTerm(contact: IContact, searchTerm: string) {
   const fields: (keyof IContact)[] = [
