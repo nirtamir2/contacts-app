@@ -25,10 +25,7 @@ export function useCreateContact(options: { onCompleted: () => void }) {
       cache.writeQuery({
         query: contactsQuery,
         data: {
-          contacts: [
-            ...(contactsCache == null ? [] : contactsCache.contacts),
-            newContact,
-          ],
+          contacts: [...(contactsCache?.contacts ?? []), newContact],
         },
       });
     },
