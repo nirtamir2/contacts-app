@@ -73,9 +73,9 @@ export type AddContactMutation = { __typename?: "Mutation" } & {
   >;
 };
 
-export type ContactsQueryQueryVariables = Exact<{ [key: string]: never }>;
+export type ContactsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type ContactsQueryQuery = { __typename?: "Query" } & {
+export type ContactsQuery = { __typename?: "Query" } & {
   contacts?: Maybe<
     Array<
       Maybe<
@@ -147,8 +147,8 @@ export type AddContactMutationHookResult = ReturnType<
 export type AddContactMutationResult = ApolloReactCommon.MutationResult<
   AddContactMutation
 >;
-export const ContactsQueryDocument = gql`
-  query contactsQuery {
+export const ContactsDocument = gql`
+  query contacts {
     contacts {
       id
       email
@@ -160,51 +160,49 @@ export const ContactsQueryDocument = gql`
 `;
 
 /**
- * __useContactsQueryQuery__
+ * __useContactsQuery__
  *
- * To run a query within a React component, call `useContactsQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useContactsQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useContactsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useContactsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useContactsQueryQuery({
+ * const { data, loading, error } = useContactsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useContactsQueryQuery(
+export function useContactsQuery(
   baseOptions?: ApolloReactHooks.QueryHookOptions<
-    ContactsQueryQuery,
-    ContactsQueryQueryVariables
+    ContactsQuery,
+    ContactsQueryVariables
   >
 ) {
-  return ApolloReactHooks.useQuery<
-    ContactsQueryQuery,
-    ContactsQueryQueryVariables
-  >(ContactsQueryDocument, baseOptions);
+  return ApolloReactHooks.useQuery<ContactsQuery, ContactsQueryVariables>(
+    ContactsDocument,
+    baseOptions
+  );
 }
-export function useContactsQueryLazyQuery(
+export function useContactsLazyQuery(
   baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    ContactsQueryQuery,
-    ContactsQueryQueryVariables
+    ContactsQuery,
+    ContactsQueryVariables
   >
 ) {
-  return ApolloReactHooks.useLazyQuery<
-    ContactsQueryQuery,
-    ContactsQueryQueryVariables
-  >(ContactsQueryDocument, baseOptions);
+  return ApolloReactHooks.useLazyQuery<ContactsQuery, ContactsQueryVariables>(
+    ContactsDocument,
+    baseOptions
+  );
 }
-export type ContactsQueryQueryHookResult = ReturnType<
-  typeof useContactsQueryQuery
+export type ContactsQueryHookResult = ReturnType<typeof useContactsQuery>;
+export type ContactsLazyQueryHookResult = ReturnType<
+  typeof useContactsLazyQuery
 >;
-export type ContactsQueryLazyQueryHookResult = ReturnType<
-  typeof useContactsQueryLazyQuery
->;
-export type ContactsQueryQueryResult = ApolloReactCommon.QueryResult<
-  ContactsQueryQuery,
-  ContactsQueryQueryVariables
+export type ContactsQueryResult = ApolloReactCommon.QueryResult<
+  ContactsQuery,
+  ContactsQueryVariables
 >;
 
 export interface IntrospectionResultData {

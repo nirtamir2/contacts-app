@@ -1,8 +1,8 @@
 import {
-  ContactsQueryDocument,
-  ContactsQueryQuery,
+  ContactsQuery,
   useAddContactMutation,
 } from "../graphql-generated/graphql";
+import { contactsQuery } from "../graphql/contactsQuery";
 
 export function useCreateContact(options: { onCompleted: () => void }) {
   const { onCompleted } = options;
@@ -19,11 +19,11 @@ export function useCreateContact(options: { onCompleted: () => void }) {
     update(cache, { data }) {
       if (data == null) return;
       const newContact = data.addContact;
-      const contactsCache = cache.readQuery<ContactsQueryQuery>({
-        query: ContactsQueryDocument,
+      const contactsCache = cache.readQuery<ContactsQuery>({
+        query: contactsQuery,
       });
       cache.writeQuery({
-        query: ContactsQueryDocument,
+        query: contactsQuery,
         data: {
           contacts: [
             ...(contactsCache == null ? [] : contactsCache.contacts),

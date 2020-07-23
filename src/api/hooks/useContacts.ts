@@ -2,18 +2,18 @@ import ApolloReactHooks from "@apollo/client";
 
 import { convertResponseToContact } from "../formatters/convertResponseToContact";
 import {
-  ContactsQueryQuery,
-  ContactsQueryQueryVariables,
-  useContactsQueryQuery,
+  ContactsQuery,
+  ContactsQueryVariables,
+  useContactsQuery,
 } from "../graphql-generated/graphql";
 
 export function useContacts(
   baseOptions?: ApolloReactHooks.QueryHookOptions<
-    ContactsQueryQuery,
-    ContactsQueryQueryVariables
+    ContactsQuery,
+    ContactsQueryVariables
   >
 ) {
-  const { data, loading, error } = useContactsQueryQuery(baseOptions);
+  const { data, loading, error } = useContactsQuery(baseOptions);
   const formattedData =
     data == null
       ? null

@@ -1,11 +1,12 @@
 overwrite: true
 schema: "http://localhost:4520/graphql"
-documents: "src/**/*.{ts,tsx,js,jsx}"
+documents: "src/api/graphql/*.ts"
 generates:
   src/api/graphql-generated/graphql.ts:
     hooks:
       afterOneFileWrite:
-        - eslint --fix
+        - yarn prettier
+        - yarn lint
     plugins:
       - "typescript"
       - "typescript-operations"
